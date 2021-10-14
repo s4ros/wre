@@ -1,0 +1,6 @@
+*.tar.bz2
+*.sql
+.git
+.db
+public_html
+letsencrypt

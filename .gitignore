@@ -1,0 +1,7 @@
+.db
+# !public_html/index.php
+# public_html
+*.sql
+*.tar.bz2
+letsencrypt
+deploy

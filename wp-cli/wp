@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo -u wre -i -- wp-cli --path=/home/wre/public_html $@
