@@ -14,6 +14,7 @@ RUN useradd -m \
     ${USER}
 
 # Install additional packages
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     apt-utils \
     less \
@@ -27,9 +28,12 @@ RUN apt-get update && apt-get install -y \
     sudo \
     vim \
     zlib1g-dev \
+    libmagickwand-dev --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
+RUN printf "\n" | pecl install imagick
 RUN docker-php-ext-install -j$(nproc) mysqli pdo_mysql exif gd zip
+RUN docker-php-ext-enable imagick
 
 # Use the default production configuration
 # RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
