@@ -17,15 +17,19 @@ RUN useradd -m \
 RUN apt-get update && apt-get install -y \
     apt-utils \
     less \
+    libjpeg-dev \
+    libpng-dev \
+    libzip-dev \
     net-tools \
     netcat-openbsd \
     procps \
     sendmail \
     sudo \
     vim \
+    zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN docker-php-ext-install -j$(nproc) mysqli pdo_mysql
+RUN docker-php-ext-install -j$(nproc) mysqli pdo_mysql exif gd zip
 
 # Use the default production configuration
 # RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
