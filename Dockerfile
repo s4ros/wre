@@ -45,4 +45,5 @@ COPY php.conf/php-fpm.d/ /usr/local/etc/php/php-fpm.d/
 RUN curl -o /usr/local/bin/wp-cli https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 COPY wp-cli/wp /usr/local/bin/wp
 RUN chmod +x /usr/local/bin/wp-cli /usr/local/bin/wp
-WORKDIR /home/${USER}}
+WORKDIR /home/${USER}
+USER 1000

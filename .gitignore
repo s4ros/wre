@@ -5,3 +5,4 @@ public_html
 *.tar.bz2
 letsencrypt
 deploy
+.DS_STORE
